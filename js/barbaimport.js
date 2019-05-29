@@ -1,17 +1,18 @@
 /*import barba from './node_modules/@barba/core';*/
-// define a global hook
-barba.hooks.leave((data) => {
-  console.log('transition');
-  // this hook will be called for each transitions
-});
-
+barba.use(barbaCss);
 barba.init({
   transitions: [{
 
     // basic style
     leave(data) {
+      $('p').fadeOut();
       // create your stunning leave animation here
-      console.log('animation');
+      console.log('leave');
+    },
+    enter(data){
+      $('p').fadeIn();
+      // create your stunning leave animation here
+      console.log('enter');
     }
 
   }]
